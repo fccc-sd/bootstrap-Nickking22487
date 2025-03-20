@@ -10,6 +10,47 @@
             <meta name="keywords" content="Nick, King, Nick King, Bryan High School">
             <title>Nick King's Web Page</title>
             <link rel="stylesheet" href="my_style.css">
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <style>
+                #draggable { width: 200px; height: 150px; padding: 0.5em; }
+                </style>
+                <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+                <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+                <script>
+                $( function() {
+                  $( "#draggable" ).draggable();
+                } );
+                </script>
+                <script>
+                    $( function() {
+                      $( "#progressbar" ).progressbar({
+                        value: false
+                      });
+                      $( "button" ).on( "click", function( event ) {
+                        var target = $( event.target ),
+                          progressbar = $( "#progressbar" ),
+                          progressbarValue = progressbar.find( ".ui-progressbar-value" );
+                   
+                        if ( target.is( "#numButton" ) ) {
+                          progressbar.progressbar( "option", {
+                            value: Math.floor( Math.random() * 100 )
+                          });
+                        } else if ( target.is( "#colorButton" ) ) {
+                          progressbarValue.css({
+                            "background": '#' + Math.floor( Math.random() * 16777215 ).toString( 16 )
+                          });
+                        } else if ( target.is( "#falseButton" ) ) {
+                          progressbar.progressbar( "option", "value", false );
+                        }
+                      });
+                    } );
+                    </script>
+                    <style>
+                    #progressbar .ui-progressbar-value {
+                      background-color: #ccc;
+                    }
+                    </style>
 
     </head>
 
@@ -34,8 +75,15 @@
             </nav>
 
 
+            <div id="draggable" class="ui-widget-content">
+                <p>Drag me around</p>
+                <input type="text">
+            </div>
 
-
+            <div id="progressbar"></div>
+                <button id="numButton">Random Value - Determinate</button>
+                <button id="falseButton">Indeterminate</button>
+                <button id="colorButton">Random Color</button>
 
             <footer class ="grid_12">
                 <h6>Copyright: &copy; 2023 Nick King</h6>
@@ -52,7 +100,8 @@
                     <li class="page-item"><a class="page-link" href="Page5.html">5</a></li>
                     <li class="page-item"><a class="page-link" href="https://play.unity.com/u/The_Shadow_Monarch">6</a></li>
                     <li class="page-item"><a class="page-link" href="Page7.html">7</a></li>
-                    <li class="page-item"><a class="page-link" href="Page7.html">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="Page8.html">8</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
                   </ul>
                 </nav>
             </footer>
