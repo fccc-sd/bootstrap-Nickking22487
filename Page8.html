@@ -52,6 +52,25 @@
                       background-color: #ccc;
                     }
                     </style>
+                    <script>
+                      $( function() {
+                        $( "#dialog" ).dialog({
+                          autoOpen: false,
+                          show: {
+                            effect: "blind",
+                            duration: 1000
+                          },
+                          hide: {
+                            effect: "explode",
+                            duration: 1000
+                          }
+                        });
+                     
+                        $( "#opener" ).on( "click", function() {
+                          $( "#dialog" ).dialog( "open" );
+                        });
+                      } );
+                      </script>
 
     </head>
 
@@ -74,17 +93,30 @@
                     <li><a href="Page8.html" title="Eighth Page">Jquery Page</a></li>
                 </ul>
             </nav>
-
+          <aside>
 
             <div id="draggable" class="ui-widget-content">
                 <p>Drag me around</p>
                 <input type="text">
             </div>
+            <br>
+            <div id="dialog" title="Basic dialog">
+              <p>You opened me. Here have a quest turn the progress bar maroon
+                then teal.
+              </p>
+            </div>
+             
+            <button id="opener">Open Dialog</button>
 
+          </aside>
+
+          <section>
             <div id="progressbar"></div>
                 <button id="numButton">Random Value - Determinate</button>
                 <button id="falseButton">Indeterminate</button>
                 <button id="colorButton">Random Color</button>
+
+          </section>
 
             <footer class ="grid_12">
                 <h6>Copyright: &copy; 2023 Nick King</h6>
